@@ -1,0 +1,42 @@
+
+@startuml
+interface Chair
+interface Sofa
+
+Chair <|..  VictorianChair : implements
+Chair <|..  ModernChair : implements
+
+Chair : hasLegs()
+Chair : sitOn()
+
+VictorianChair : hasLegs()
+VictorianChair : sitOn()
+
+ModernChair : hasLegs()
+ModernChair : sitOn()
+
+
+Sofa <|..  VictorianSofa : implements
+Sofa <|..  ModernSofa: implements
+
+
+interface FurnitureFactory
+FurnitureFactory : createChair() : Chair
+FurnitureFactory : createTable() : Table
+
+class VictorianFurnitureFactory
+VictorianFurnitureFactory : createChair() : Chair
+VictorianFurnitureFactory : createTable() : Table
+
+class ModernFurnitureFactory
+ModernFurnitureFactory : createChair() : Chair
+ModernFurnitureFactory : createTable() : Table
+
+FurnitureFactory <|.. VictorianFurnitureFactory
+FurnitureFactory <|.. ModernFurnitureFactory
+
+
+
+
+@enduml
+
