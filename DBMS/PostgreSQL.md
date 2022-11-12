@@ -31,6 +31,8 @@ psql --username=freecodecamp --dbname=postgres
 * **Create table**
     ```postgres
     CREATE TABLE table_name();
+
+    CREATE TABLE table_name(column_name DATATYPE CONSTRAINTS);
     ```
 *  **Add column**
     ```postgres
@@ -47,10 +49,19 @@ psql --username=freecodecamp --dbname=postgres
     ALTER TABLE table_name RENAME COLUMN column_name TO new_name;
     ```
 
-* **Adding primary key**    
-    You should set a primary key on every table and there can ***only be one*** per table.
+* **Adding Constraint to columns**    
+    
     ```postgres
+    --Primary key 
+    --You should set a primary key on every table and there can ***only be one*** per table.
     ALTER TABLE table_name ADD PRIMARY KEY(column_name);
+    ALTER TABLE table_name ADD PRIMARY KEY(column1, column2);   --composite primary key
+
+    --Unique
+    ALTER TABLE table_name ADD UNIQUE(column_name);
+
+    --ALTER COLUMN FOR NOT NULL
+    ALTER TABLE table_name ALTER COLUMN column_name SET NOT NULL;
     ```
 * **Drop constraint**   
     
@@ -91,17 +102,45 @@ psql --username=freecodecamp --dbname=postgres
     UPDATE table_name SET column_name=new_value WHERE condition;
     ```
 
-### **Datatypes**
-* INT
-* VARCHAR()
-* SERIAL -> INT and NOT NULL . Automatically increase value when new row is added.
+* **Create a column as foreign key**
+  ```postgres
+    ALTER TABLE table_name ADD COLUMN column_name DATATYPE REFERENCES referenced_table_name(referenced_column_name);
+  ```
+* **JOIN**
+    ```postgres
+    SELECT columns FROM table_1 FULL JOIN table_2 ON table_1.primary_key_column = table_2.foreign_key_column;
 
+    --using junction table to join 3 tables
+    SELECT columns FROM junction_table
+        FULL JOIN table_1 ON junction_table.foreign_key_column = table_1.primary_key_column
+        FULL JOIN table_2 ON junction_table.foreign_key_column = table_2.primary_key_column;
+    ```
 ### **Shortcut commands**
 
 | Commands          | Description                  |
 | ----------------- | ---------------------------- |
 | `\d`              | display tables               |
 | `\d <table_name>` | display information of table |
-| Row3              |                              |
-| Row3              |                              |
+
+---
+## ***Notes***
+* **Junction table**  
+    * Many-to-many" relationships usually use a junction table to link two tables together, forming two "one-to-many" relationships.
+    * Junction table uses *primary keys* from both tables as **foreign key** to create the relationship.
+
+* **Composite Primary Key**
+  * Primary key made from two or more columns.
+  ```postgres
+    ALTER TABLE table_name ADD PRIMARY KEY(column1, column2);
+  ```
+
+
+### **Datatypes**
+* INT
+* VARCHAR( )
+* SERIAL -> INT and NOT NULL . Automatically increase value when new row is added.
+* NUMERIC( , ) -> Decimal number.
+* 
+
+
 
