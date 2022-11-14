@@ -96,15 +96,22 @@ psql --username=freecodecamp --dbname=postgres
     ```postgres
     DROP TABLE table_name;
     ```
-
+* **Delete all contents of table**
+    ```postgres
+    TRUNCATE table_name;
+    ```
 *  **Update table**
     ```postgres 
     UPDATE table_name SET column_name=new_value WHERE condition;
     ```
 
-* **Create a column as foreign key**
+* **Foreign key**
   ```postgres
+    -- creating a column and making it a foreign key
     ALTER TABLE table_name ADD COLUMN column_name DATATYPE REFERENCES referenced_table_name(referenced_column_name);
+
+    -- making an existing column foreign key
+    ALTER TABLE <table_name> ADD FOREIGN KEY(<column_name>) REFERENCES <referenced_table_name>(<referenced_column_name>);
   ```
 * **JOIN**
     ```postgres
