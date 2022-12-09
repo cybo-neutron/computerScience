@@ -14,9 +14,60 @@
 ## **2. Open Closed Principle**
 - Classes should be **open** for extension but **closed** to modification.
 - We should be able to add new functionality without touching the existing code for the class.
+- Basically we should make an interface of the things which in future can be extended for new features.
+- The current requirements should also be implementing this interface and future interface.
+
+For example:
+**Wrong Implmentation :** We have an application where we need to save data to file. So we create a class called `SaveData` and write our function `saveToFile` in it.
+```c++
+class SaveData{
+    
+    Data data;
+    
+    saveToFile(Data data);
+
+}
+```
+But what if a new use case rises in future to save the data in Database.  
+Will we add a new function to our existing class `SaveData`?  
+This would **violate** Open closed principle as it states that classes should be closed to modification.  
+So what's the right implementation then?  
+**Right Implementation:** Initially we create an `interface` called `SaveData` and we can extend and implemen this according to our use cases.  
+
+```java
+interface SaveData{
+    Data data;
+    save(Data data);
+}
+```
+Now both our use cases implements this interface.
+```java
+
+class SaveToFile implements SaveData{ 
+    save(Data data){
+        //... some implementation to save data to file..
+    }
+}
+
+class SaveToDB implements SaveData{
+    save(Data data){
+        //... some implementation to save data to DB
+    }
+}
+
+```
 
 
 ## **3. Liskov Substitution Principle**
 If S is a subtype of T, then objects of type T in a program may be replaced with objects of type S without altering any of the desirable properties of that program.
+- This means that, given that class B is a subclass of class A, we should be able to pass an object of class B to any method that expects an object of class A and the method should not give any weird output in that case.
+- Subclass should extend the capability of parent class and not narrow it down.
+
+**Example**  
 
 
+
+## **4. Interface Segmentation**
+
+
+## **5. Dependency Inversion**

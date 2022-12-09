@@ -1,6 +1,6 @@
 **Login to db**
 ```postgres
-psql --username=freecodecamp --dbname=postgres
+psql --username=<username> --dbname=postgres
 ```
 
 
@@ -147,7 +147,6 @@ psql --username=freecodecamp --dbname=postgres
 * VARCHAR( )
 * SERIAL -> INT and NOT NULL . Automatically increase value when new row is added.
 * NUMERIC( , ) -> Decimal number.
-* 
 
 
 
