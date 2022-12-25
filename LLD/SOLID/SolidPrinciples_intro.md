@@ -68,6 +68,17 @@ If S is a subtype of T, then objects of type T in a program may be replaced with
 
 
 ## **4. Interface Segmentation**
+It does not recommend having methods that an interface would not use and require. Therefore, it goes against having fat interfaces in classes and prefers having small interfaces with a group of methods, each serving a particular purpose.
 
+Interfaces should not be bloated with members which are not necessary for every concrete implementation of the interface.
+
+Suppose   
+Shape has methods `area` and  `volume`.
+Now *rectangle* implements *Shape* interface. The `volume` method should be present in rectangle since its a 2d shape but because it is inheriting *Shape* interface so it must implement `volume` method.
+
+Solution??  
+We can make an another interface implementing *Shape*. Lets call it *3DShape* and *2DShape*. 
+So all the 2d shapes can easily implement *2DShape* and 3d shapes can implement *3DShape*.
 
 ## **5. Dependency Inversion**
+The Dependency Inversion Principle (DIP) states that high-level modules should not depend on low-level modules, but rather both should depend on abstractions. The abstractions should not depend on details. Instead, the details should depend on abstractions.

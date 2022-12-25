@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #outer{
+            width: 500px;
+            height: 50px;
+            background: rgb(187, 187, 187);
+            border: 2px solid black;
+            /* border-radius: 30px; */
+            overflow: hidden;
+        }
+
+        #inner{
+            background-color: rgb(11, 163, 113);
+            height: 100%;
+            width: 20%;
+            margin: 0;
+            padding: 0;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+    <div id="outer">
+        <div id="inner"></div>
+    </div>
+
+    <script src="progressbar.js"></script>
+</body>
+</html>
