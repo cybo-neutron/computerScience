@@ -46,6 +46,13 @@ Endless loop where JS engine waits for tasks, executes them and then sleeps wait
 
 ---
 
+### IIFE(Immediately Invoked Function Expression)
+```
+(function() {
+  //code goes here
+})()
+```
+
 
 ## **Promise**
 
@@ -66,4 +73,3 @@ function(resolve,reject){}
 
 ```
 
-When exec
