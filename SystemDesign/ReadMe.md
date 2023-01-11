@@ -2,7 +2,7 @@
 proxy meand *on-behalf*
 
 ### Forward proxy :
-- proxy talks and communicate with server on behalf of client
+- proxy talks and ***communicate with server on behalf of client***
 - useful of anonimty
 - Block malicious traffic from reaching an origin web server.
 - Also used to block the access to certains websites and IPs

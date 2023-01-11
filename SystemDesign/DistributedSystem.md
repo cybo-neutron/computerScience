@@ -30,7 +30,7 @@ False assumptions that people make while starting with Distributed systems
 
 
 ## **Why distributed systems are hard to design**
-Foloowing properties of distributed systems make it challenging.
+Following properties of distributed systems make it challenging.
 - **Network Asynchrony**
 - **Partial failures** : some components of a distributed system fails.
 - **Concurrency**: execution of multiple computations at the same time and potentially on the same piece of data.

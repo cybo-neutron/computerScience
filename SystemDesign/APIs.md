@@ -34,3 +34,6 @@ By stateless we mean that the requests should be stateless.
 - 301 : REdirect
 - 400 : Bad request
 - 409 : conflict (data you are trying to create already exist)
+- 412 : Sending data which server is not able to process it
+- 500 : Server failure.
+
